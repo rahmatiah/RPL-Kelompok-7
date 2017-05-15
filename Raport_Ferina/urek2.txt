@@ -1,0 +1,48 @@
+<input class="button" type="button" value="Mata Pelajaran"><br/><br/></br>
+				  <input class="button" type="button" value="Semester"><br/><br/></br>
+
+
+
+
+if ($cari['FK_ID_Guru'] == $user && $cari['Mata_Pelajaran'] == $mapel) {
+              if($cari['FK_ID_Guru'] == $user && $cari['Semester'] == $smt){
+                $id_siswa = mysqli_query($koneksi, "SELECT FK_ID_Siswa from MENGAJAR_GURU_SISWA");
+                $id_WK = mysqli_query($koneksi, "SELECT FK_ID_WK from siswa WHERE FK_ID_Siswa = '$id_siswa'");
+                $kelas = mysqli_query($koneksi, "SELECT KELAS_WK from Wali_Kelas WHERE ID_WK = '$id_WK'");
+                $nilai = mysqli_query($koneksi, "SELECT FK_Nilai from RAPORT_NILAI WHERE FK_ID_Siswa = '$id_siswa'");
+
+                $row_wk = mysql_fetch_array($id_WK);
+
+
+
+
+echo "<tr>
+                          <td>$no</td>
+                          <td>".$row['Nama_Siswa']."</td>
+                          <td>".$row['FK_Kelas']."</td>
+                          <td><form action='guru_addnilai3.php' method='POST'><input placeholder=".$row['FK_Nilai']." name='re'></input></form></td>
+                        </tr>";
+
+
+                  $gantinilai = $_POST["re"];
+                  $ganti = mysqli_query("UPDATE Raport_Nilai SET FK_ID_Siswa = ".$row['FK_ID_Siswa'].",
+                    FK_Mata_Pelajaran = ".$row['Mata_Pelajaran'].", FK_Nilai=$gantinilai, FK_Semester = ".$row['Semester'].",
+                    Validasi = 0, FK_Kelas = ".$row['FK_Kelas']." WHERE 1");
+                  }
+
+$simpan_nama[$ind] = ".$row['Nama_Siswa'].";
+                  $simpan_kelas[$ind] = ".$row['FK_Kelas'].";
+                  $simpan_nilai[$ind] = ".$row['FK_Nilai']."
+
+
+
+$gantinilai = $_POST["re"];
+                  $ganti = mysqli_query("UPDATE Raport_Nilai SET FK_ID_Siswa = ".$row['FK_ID_Siswa'].",
+                    FK_Mata_Pelajaran = ".$row['Mata_Pelajaran'].", FK_Nilai=$gantinilai, FK_Semester = ".$row['Semester'].",
+                    Validasi = 0, FK_Kelas = ".$row['FK_Kelas']." WHERE 1");
+
+
+
+<form name="form_edit" id="form_edit" onsubmit="ubah_nilai()" method="POST">
+              <input type="button" value="Ubah Nilai" onclick="ubah_nilai()"/>
+            </form>

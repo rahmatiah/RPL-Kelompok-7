@@ -1,0 +1,14 @@
+file login.php tak benakke
+kolom FK_ID_Siswa nang tabel guru tak hapus
+belum bisa menangani dengan inputan kosong atau tidak cocok
+belum bisa keluar alert ketika klik "Hapus"
+
+
+plan :
+- hapus file "guru_addnilai2.php", tombol edit dan hapus pindah ke file "guru_addnilai3.php"
+- button dengan name="simpan" belum di eksekusi di file "guru_addnilai.php"
+
+
+WARNING !
+- cek buat ID_Guru di "guru_addnilai2.php" sama "guru_addnilai3.php" masih pake '678', harusnya '$user'
+- else buat if yg syarat id_guru, semester, sama mapel belum dibuat
